@@ -1,7 +1,7 @@
 name: Marisa_build_kernel
 
 env:
-  KERNEL_SOURCE: "https://github.com/Laulan56/android_kernel_xiaomi_sm8150"
+  KERNEL_SOURCE: "https://github.com/LFJINGT/android_kernel_xiaomi_sm8150"
   KERNEL_SOURCE_BRANCH: "android13"
   KERNEL_DEFCONFIG: "cepheus_defconfig"
   KERNEL_NAME: "Marisa-cepheus"
