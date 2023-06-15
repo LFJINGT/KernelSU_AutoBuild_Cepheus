@@ -1,10 +1,10 @@
-name: PE2
+name: Marisa_build_kernel
 
 env:
-  KERNEL_SOURCE: 'https://github.com/PixelExperience-Devices/kernel_xiaomi_cepheus'
-  KERNEL_SOURCE_BRANCH: 'thirteen'
-  KERNEL_DEFCONFIG: 'cepheus_defconfig'
-  KERNEL_NAME: 'pixelExperience-cepheus'
+  KERNEL_SOURCE: "https://github.com/Laulan56/android_kernel_xiaomi_sm8150"
+  KERNEL_SOURCE_BRANCH: "android13"
+  KERNEL_DEFCONFIG: "cepheus_defconfig"
+  KERNEL_NAME: "Marisa-cepheus"
 
 on:
   # schedule:
@@ -19,13 +19,13 @@ jobs:
       - name: run build script
         run: |
           echo "BUILD_TIME=$(TZ=Asia/Shanghai date "+%Y%m%d%H%M%S")" >> $GITHUB_ENV
-          bash scripts/Evasi0nKernelBuildProcess.sh ${{env.KERNEL_SOURCE}} ${{env.KERNEL_SOURCE_BRANCH}} ${{env.KERNEL_DEFCONFIG}} ${{env.KERNEL_NAME}} 
-          
+          bash scripts/Evasi0nKernelBuildProcess.sh ${{env.KERNEL_SOURCE}} ${{env.KERNEL_SOURCE_BRANCH}} ${{env.KERNEL_DEFCONFIG}} ${{env.KERNEL_NAME}}
+
       - name: do build
         run: |
           cd $GITHUB_WORKSPACE/kernel_workspace/android-kernel
-          sudo bash build.sh          
-          
+          sudo bash build.sh
+
       - name: release
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
